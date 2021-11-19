@@ -1,0 +1,43 @@
+.form-group>input{
+
+    font-weight: bolder;
+
+}
+
+.form-group>select{
+
+    font-weight: bolder;
+
+}
+
+.form-group input placeholder{
+
+    color: rgb(228,211,211);
+
+}
+
+table tobody tr:hover{
+
+    background-color: rgba(143,188,255,0.664);
+
+    cursor: pointer;
+
+}
+
+input.invalid{
+
+    border-color: red;
+
+}
+
+div.validation-error{
+
+    width: 100%;
+
+    margin-top: .25em;
+
+    font-size: 80%;
+
+    color: red;
+
+}

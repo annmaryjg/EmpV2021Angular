@@ -1,0 +1,66 @@
+<div class="container">
+    <div class="header">
+        <h5 class="text-center">
+            Employee Info
+        </h5>
+        <!--Search-->
+        <div class="form-group">
+            <input class="form-control" type ="text"
+            placeholder="search here..."
+            [(ngModel)] ="filter">
+
+        </div>
+    </div>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    Full Name
+                </th>
+                <th>
+                    Designation
+                </th>
+                <th>
+                    Join Date
+                </th>
+                <!--<th>
+                        Department
+                    </th>
+                    <th>
+                        Status
+                    </th>-->
+                <th>
+                    Action
+                </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let emp of this.empService.employees | filter: filter | paginate: {itemsPerPage: 5, currentPage:page} "  >
+                <td (click)="populateForm(emp)">{{emp.EmployeeId}}</td>
+                <td (click)="populateForm(emp)">{{emp.EmployeeName}}</td>
+                <td (click)="populateForm(emp)">{{emp.Designation}}</td>
+                <td (click)="populateForm(emp)">{{emp.DateOfJoining|date:'dd-MM-yyyy'}}</td>
+                <!--<td>{{emp.DepartmentId}}</td>
+                    <td >{{emp.IsActive}}</td>-->
+                <td>
+                    <button class="btn btn-sm btn-outline-danger" (click) ="deleteEmployee(emp.EmployeeId)">Delete</button>&nbsp;
+                    <button class="btn btn-sm btn-info" style="margin-left:10px">Edit</button>
+                </td>
+
+            </tr>
+        </tbody>
+
+
+
+    </table>
+    <div class="footer">
+        <!--pagination-->
+        <pagination-controls (pageChange)="page=($event)"></pagination-controls>
+
+    </div>
+
+</div>
